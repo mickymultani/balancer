@@ -9,6 +9,8 @@ on:
 
 jobs:
   fetch-balances:
+    permissions:
+      contents: write
     runs-on: ubuntu-latest
     steps:
       - name: Check out repository
@@ -32,7 +34,7 @@ jobs:
       - name: Commit results
         uses: stefanzweifel/git-auto-commit-action@v5
         with:
-          commit_message: "📈 Update ETH balances report"
+          commit_message: "Update ETH balances report"
           # The pattern of the files to commit.
           file_pattern: "results/*.csv"
           commit_user_name: "GitHub Actions Bot"
